@@ -4,14 +4,18 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.reanimator.affirmations.R
 import com.reanimator.affirmations.model.Affirmation
 
-class ItemAdapter(private val context: Context,
-                  private val dataset: List<Affirmation>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter(
+    private val context: Context,
+    private val dataset: List<Affirmation>
+) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+        val imageView = view.findViewById<ImageView>(R.id.item_image)
         val textView = view.findViewById<TextView>(R.id.item_title)
     }
 
@@ -26,6 +30,7 @@ class ItemAdapter(private val context: Context,
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = dataset[position]
+        holder.imageView.setImageResource(item.imageResourceId)
         holder.textView.text = context.resources.getString(item.stringResourceId)
     }
 }
