@@ -45,4 +45,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    // interaction with recycler
+    androidTestImplementation(libs.androidx.espresso.contrib)
+    //mockito
+    testImplementation(libs.mockito.core)
 }
